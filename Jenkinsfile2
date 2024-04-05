@@ -14,7 +14,7 @@ pipeline{
             }
         }
         stage('parallel stages') {
-        paralel{
+        parallel{
             stage('codetesting with akshat'){
                 steps{
                     sh 'mvn test'
