@@ -13,19 +13,23 @@ pipeline{
                 sh 'mvn compile'
             }
         }
-        stage('codetesting with akshat'){
-            steps{
-                sh 'mvn test'
+        stage('parallel stages') {
+        paralel{
+            stage('codetesting with akshat'){
+                steps{
+                    sh 'mvn test'
+                }
+            }
+            stage('qa with akshat'){
+                steps{
+                    sh 'mvn checkstyle:checkstyle'
+                    }
             }
         }
-        stage('qa with akshat'){
-            steps{
-                sh 'mvn checkstyle:checkstyle'
-            }
         }
-        stage('package with akshat'){
-            steps{
-                sh 'mvn package'
+            stage('package with akshat'){
+                steps{
+                    sh 'mvn package'
             }
         }
     }
