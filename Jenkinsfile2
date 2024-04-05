@@ -24,7 +24,7 @@ pipeline{
             }
         }
         stage('package with akshat'){
-            when{anyOf {branch 'master'; branch 'main' branch ;'branch1'}}
+            when{anyOf {branch 'master'; branch 'main'; branch 'branch1'}}
             steps{
                 sh 'mvn package'
             }
